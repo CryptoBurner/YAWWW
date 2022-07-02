@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>YAWWW_Listings_ME.knit</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/darkly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-basic-2.5.1/plotly-basic-2.5.1.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">YAWWW Listing on Magic Eden</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="YAWWW_Listings_ME.html">YAWWW</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="undervalued-yawwww-nfts-based-on-yield-and-yaw-price"
+class="section level2">
+<h2>Undervalued YAWWWW NFTs Based on Yield and YAW Price</h2>
+<div id="htmlwidget-732ef8b8dba05fde824e" style="width:960px;height:960px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-732ef8b8dba05fde824e">{"x":{"data":[{"x":[12,11.11,10,9.199,14,10,9.9,14,10.99,10,12.12,15,15,15,9.2,11.67,8.95,14.99,16,9.5,11,10,9.55,10,9.55,9.45,8.94,8.74,12,14.95,9.6,8.7,9,9.9,11,8.75,10,11.49,15,14.3,8.75,10,14.44,10,8.95,11.99,9.1,9.99,8.94,15,8.78,15.5,16.5,9.2,9.4,10.58,12,14.25],"y":[16938.2783882192,15123.1434128767,13648.0468486301,12752.4525157534,17127.4546867123,13003.8894908219,12863.4040821918,16801.7840613699,13830.8375249315,12829.0809780822,14680.1355083562,17316.6310757534,16831.3179035616,16830.5197234247,11108.9332420548,13410.977749863,10517.4578558904,16408.2653173973,17362.9273346575,10913.3712308219,12338.9785439726,11349.9934226027,10867.0748813699,11253.4096419178,10747.3430617808,10638.7861263014,10119.14985,9776.71671739726,12930.453930137,15810.4042184931,10443.2241150685,9495.74599068493,9720.84184410959,10595.6826784932,11633.358780274,9299.38570876712,10478.3453993151,11916.7241379452,15329.0822186301,14617.0767421918,9179.65388917808,10399.3223965753,14638.6284208219,10241.2763910959,9206.79310041096,12139.4254509589,9311.35895410959,10096.0017205479,9041.56312056164,14902.8367308219,8790.12621793151,15360.2124210959,16327.6458638356,9186.83778205479,9352.0677709589,10475.9507683562,11789.0101547945,13951.3676152055],"text":["Quantum Trader #8227<br />+5201 $YAW","Quantum Trader #78<br />+4257 $YAW","Quantum Trader #1540<br />+3867 $YAW","Quantum Trader #4887<br />+3755 $YAW","Quantum Trader #756<br />+3434 $YAW","Quantum Trader #7601<br />+3223 $YAW","Quantum Trader #1091<br />+3181 $YAW","Quantum Trader #8313<br />+3109 $YAW","Quantum Trader #4255<br />+3082 $YAW","Quantum Trader #6374<br />+3048 $YAW","Quantum Trader #4281<br />+2826 $YAW","Quantum Trader #6675<br />+2646 $YAW","Quantum Trader #7091<br />+2160 $YAW","Quantum Trader #5366<br />+2159 $YAW","Quantum Trader #6067<br />+2111 $YAW","Quantum Trader #1868<br />+1997 $YAW","Quantum Trader #591<br />+1764 $YAW","SolStein #5589<br />+1747 $YAW","Quantum Trader #7031<br />+1714 $YAW","Quantum Trader #1686<br />+1622 $YAW","Quantum Trader #824<br />+1580 $YAW","Quantum Trader #7576<br />+1569 $YAW","Quantum Trader #295<br />+1527 $YAW","Quantum Trader #1557<br />+1473 $YAW","Quantum Trader #7992<br />+1407 $YAW","Quantum Trader #1107<br />+1396 $YAW","Quantum Trader #8710<br />+1375 $YAW","Quantum Trader #2250<br />+1228 $YAW","Quantum Trader #5773<br />+1194 $YAW","Quantum Trader #8096<br />+1188 $YAW","Quantum Trader #6949<br />+1054 $YAW","Quantum Trader #4032<br />+987 $YAW","Quantum Trader #3553<br />+918 $YAW","Quantum Trader #652<br />+913 $YAW","Quantum Trader #6627<br />+875 $YAW","Quantum Trader #5205<br />+741 $YAW","Quantum Trader #5140<br />+698 $YAW","Quantum Trader #1478<br />+679 $YAW","Quantum Trader #6620<br />+658 $YAW","SolStein #5494<br />+631 $YAW","Quantum Trader #6890<br />+622 $YAW","Quantum Trader #1212<br />+619 $YAW","SolStein #984<br />+515 $YAW","Quantum Trader #2071<br />+461 $YAW","Quantum Trader #4035<br />+453 $YAW","Quantum Trader #848<br />+412 $YAW","Quantum Trader #83<br />+411 $YAW","Quantum Trader #1581<br />+325 $YAW","Quantum Trader #396<br />+298 $YAW","Quantum Trader #8109<br />+232 $YAW","Quantum Trader #8512<br />+203 $YAW","Quantum Trader #1887<br />+200 $YAW","Quantum Trader #2579<br />+190 $YAW","Quantum Trader #2895<br />+189 $YAW","Quantum Trader #524<br />+158 $YAW","Quantum Trader #840<br />+128 $YAW","Quantum Trader #2815<br />+52 $YAW","SolStein #9483<br />+14 $YAW"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.66929133858268,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[8.31,16.89],"y":[8127.75579587532,16519.5902999199],"text":"","type":"scatter","mode":"lines","line":{"width":5.66929133858268,"color":"rgba(255,0,0,1)","dash":"dash"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5,11.5],"y":[9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683,9780.69289515683],"text":["YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329","YAW price in SOL<br />SOL @ $32.16<br />YAW @ $0.0329"],"hovertext":["Quantum Trader #8227<br />+5201 $YAW","Quantum Trader #78<br />+4257 $YAW","Quantum Trader #1540<br />+3867 $YAW","Quantum Trader #4887<br />+3755 $YAW","Quantum Trader #756<br />+3434 $YAW","Quantum Trader #7601<br />+3223 $YAW","Quantum Trader #1091<br />+3181 $YAW","Quantum Trader #8313<br />+3109 $YAW","Quantum Trader #4255<br />+3082 $YAW","Quantum Trader #6374<br />+3048 $YAW","Quantum Trader #4281<br />+2826 $YAW","Quantum Trader #6675<br />+2646 $YAW","Quantum Trader #7091<br />+2160 $YAW","Quantum Trader #5366<br />+2159 $YAW","Quantum Trader #6067<br />+2111 $YAW","Quantum Trader #1868<br />+1997 $YAW","Quantum Trader #591<br />+1764 $YAW","SolStein #5589<br />+1747 $YAW","Quantum Trader #7031<br />+1714 $YAW","Quantum Trader #1686<br />+1622 $YAW","Quantum Trader #824<br />+1580 $YAW","Quantum Trader #7576<br />+1569 $YAW","Quantum Trader #295<br />+1527 $YAW","Quantum Trader #1557<br />+1473 $YAW","Quantum Trader #7992<br />+1407 $YAW","Quantum Trader #1107<br />+1396 $YAW","Quantum Trader #8710<br />+1375 $YAW","Quantum Trader #2250<br />+1228 $YAW","Quantum Trader #5773<br />+1194 $YAW","Quantum Trader #8096<br />+1188 $YAW","Quantum Trader #6949<br />+1054 $YAW","Quantum Trader #4032<br />+987 $YAW","Quantum Trader #3553<br />+918 $YAW","Quantum Trader #652<br />+913 $YAW","Quantum Trader #6627<br />+875 $YAW","Quantum Trader #5205<br />+741 $YAW","Quantum Trader #5140<br />+698 $YAW","Quantum Trader #1478<br />+679 $YAW","Quantum Trader #6620<br />+658 $YAW","SolStein #5494<br />+631 $YAW","Quantum Trader #6890<br />+622 $YAW","Quantum Trader #1212<br />+619 $YAW","SolStein #984<br />+515 $YAW","Quantum Trader #2071<br />+461 $YAW","Quantum Trader #4035<br />+453 $YAW","Quantum Trader #848<br />+412 $YAW","Quantum Trader #83<br />+411 $YAW","Quantum Trader #1581<br />+325 $YAW","Quantum Trader #396<br />+298 $YAW","Quantum Trader #8109<br />+232 $YAW","Quantum Trader #8512<br />+203 $YAW","Quantum Trader #1887<br />+200 $YAW","Quantum Trader #2579<br />+190 $YAW","Quantum Trader #2895<br />+189 $YAW","Quantum Trader #524<br />+158 $YAW","Quantum Trader #840<br />+128 $YAW","Quantum Trader #2815<br />+52 $YAW","SolStein #9483<br />+14 $YAW"],"textfont":{"size":14.6645669291339,"color":"rgba(255,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.3059360730594,"r":7.30593607305936,"b":37.2602739726027,"l":54.7945205479452},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[8.31,16.89],"tickmode":"array","ticktext":["10","12","14","16"],"tickvals":[10,12,14,16],"categoryorder":"array","categoryarray":["10","12","14","16"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"NFT Price (SOL)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[8361.48616209521,17791.5673904938],"tickmode":"array","ticktext":["10000","12000","14000","16000"],"tickvals":[10000,12000,14000,16000],"categoryorder":"array","categoryarray":["10000","12000","14000","16000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Total $YAW Yield Remaining","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"18704be3494":{"x":{},"y":{},"text":{},"type":"scatter"},"18706f1a6a13":{"intercept":{},"slope":{}},"18705834d75":{"x":{},"y":{},"text":{},"label":{}}},"cur_data":"18704be3494","visdat":{"18704be3494":["function (y) ","x"],"18706f1a6a13":["function (y) ","x"],"18705834d75":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":{"render":[{"code":"\n    function(el, x) {\n      // when hovering over an element, do something\n      el.on('plotly_hover', function(d) {\n\n        // extract tooltip text\n        txt = d.points[0].data.text;\n        // image is stored locally\n        image_location = '../2018-10-28-showing-images-on-hover-in-plotly-with-r_files/' + txt + '.jpg';\n\n        // define image to be shown\n        var img = {\n          // location of image\n          source: image_location,\n          // top-left corner\n          x: 0,\n          y: 1,\n          sizex: 0.2,\n          sizey: 0.2,\n          xref: 'paper',\n          yref: 'paper'\n        };\n\n        // show image and annotation \n        Plotly.relayout(el.id, {\n            images: [img] \n        });\n      })\n    }\n    ","data":null}]}}</script>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+name: "cat-website"
+navbar:
+  title: "YAWWW Listing on Magic Eden"
+  left:
+    - text: "YAWWW"
+      href: YAWWW_Listings_ME.html
+  #right: 
+#    - icon: fa-envelope fa-lg
+#      href: mailto:<cats@catemail.com>
+#    - icon: fa-github fa-lg
+  #   href: https://github.com/CryptoBurner/YAWWW/tree/main/YAWWW
+output:
+  html_document:
+    theme: darkly

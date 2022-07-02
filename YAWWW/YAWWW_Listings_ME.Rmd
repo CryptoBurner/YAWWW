@@ -1,0 +1,125 @@
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source(here::here("YAWWW Undervalued.R"))
+```
+
+## Undervalued YAWWWW NFTs Based on Yield and YAW Price
+
+```{r, echo=F}
+
+a <- g.dat %>% 
+  ggplot(aes(Price, YAW.num, colour = best)) +
+  geom_point() +
+  theme_bw() +
+  xlab(paste0("NFT Price (SOL)")) +
+  ylab(paste0("Total $YAW Yield Remaining")) + 
+  geom_abline(intercept = 0, slope = y.s, color="red",linetype="dashed", size=1.5)  + 
+  geom_label_repel(data=subset(g.dat,best == "Top 10"),
+                   aes(label=paste0(Name,"\n",YAW)),size = 3, color = "blue") +
+  geom_label(aes(x = 11.5,y = 10*y.s,
+                label = paste0("YAW price in SOL",
+                "\nSOL @ $",round(sol.price,2),
+                "\nYAW @ $",round(YAW.price,4))  
+                ), colour = "red") +
+  theme(legend.position="none") 
+#+
+#  ggtitle("Undervalued YAWWWW NFTs","Top Ten in Blue")
+
+
+b <- dat.all %>% filter(!is.na(Price)) %>%
+  mutate(price2 = as.factor(round(Price/.5)*.5)) %>% 
+  group_by(price2) %>% 
+  summarise(n = n(), sol.total = sum(Price)) %>% 
+  mutate(total = cumsum(n), sol.total = cumsum(sol.total)) %>% 
+  ggplot() + 
+  geom_bar(aes(x = price2, y = total),stat="identity", fill = "blue") +
+  geom_line(aes(x = price2, y = sol.total/10),size = 1, color="red", group = 1) + 
+  theme_classic() +
+  ylab("Total Sales Needed") +
+  xlab("Floor Price") +
+  geom_text(aes(x = price2, y = total,label=total), vjust=-0.5, color="black", size=3.5) +
+  ggtitle("Number of YAWWW NFT Sells on ME Needed to Move Up Floor Price") + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  scale_y_continuous(sec.axis = sec_axis(~.*10, name = "Total SOL Sale Volume Needed"))
+
+
+c <- dat.all %>% filter(!is.na(Price)) %>%
+  mutate(price2 = as.factor(round(Price/.5)*.5)) %>% 
+  group_by(price2) %>% 
+  summarise(n = n(), sol.total = sum(Price)) %>% 
+  mutate(total = cumsum(n), sol.total = cumsum(sol.total)) %>% 
+  ggplot() + 
+  geom_bar(aes(x = price2, y = n),stat="identity", fill = "blue") +
+  #geom_line(aes(x = price2, y = sol.total/10),size = 1, color="red", group = 1) + 
+  theme_classic() +
+  ylab("# Listed") +
+  xlab("Price") +
+  geom_text(aes(x = price2, y = n,label=n), vjust=-0.5, color="black", size=3.5) +
+  ggtitle("Listing Prices") + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  scale_y_continuous(sec.axis = sec_axis(~.*10, name = "Total SOL Sale Volume Needed"))
+
+
+```
+
+
+```{r, echo=FALSE, warning=FALSE, fig.height=10, fig.width=10}
+g <-g.dat %>% ggplot(aes(x = Price,
+                      y = YAW.num,
+                      #color = Species,
+                      text = paste0(Name,"\n+",round(diff,0)," $YAW"))) + geom_point() +
+    geom_abline(intercept = 0, slope = y.s, color="red",linetype="dashed", size=1.5) +
+  xlab(paste0("NFT Price (SOL)")) +
+  ylab(paste0("Total $YAW Yield Remaining"))  +
+  theme_bw() +
+   geom_text(aes(x = 11.5,y = 10*y.s,
+                label = paste0("YAW price in SOL",
+                "\nSOL @ $",round(sol.price,2),
+                "\nYAW @ $",round(YAW.price,4))  
+                ), colour = "red")
+#+
+#  ggtitle("Undervalued YAWWWW NFTs","Top Ten in Blue")
+
+
+p <- ggplotly(g, tooltip = "text") %>% partial_bundle() 
+
+
+p %>% htmlwidgets::onRender("
+    function(el, x) {
+      // when hovering over an element, do something
+      el.on('plotly_hover', function(d) {
+
+        // extract tooltip text
+        txt = d.points[0].data.text;
+        // image is stored locally
+        image_location = '../2018-10-28-showing-images-on-hover-in-plotly-with-r_files/' + txt + '.jpg';
+
+        // define image to be shown
+        var img = {
+          // location of image
+          source: image_location,
+          // top-left corner
+          x: 0,
+          y: 1,
+          sizex: 0.2,
+          sizey: 0.2,
+          xref: 'paper',
+          yref: 'paper'
+        };
+
+        // show image and annotation 
+        Plotly.relayout(el.id, {
+            images: [img] 
+        });
+      })
+    }
+    ")
+
+```
