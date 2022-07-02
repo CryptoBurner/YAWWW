@@ -1,0 +1,2 @@
+# YAWWW
+YAWWW NFTs Prices
